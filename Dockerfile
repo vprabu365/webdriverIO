@@ -1,4 +1,4 @@
-FROM node:14.15.3-buster
+FROM node:14.15.3-buster-slim
 
 # INSTALL LIBRARIES & FONTS 
 RUN apt-get update && \
@@ -51,7 +51,7 @@ RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
 ENV CHROME_VERSION 87.0.4280.88
 RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb" && \
-  dpkg -i /usr/src/google-chrome-stable_current_amd64.deb ; \
+  dpkg -i /usr/src/google-chrome-stable_current_amd64.deb; && \
   apt-get install -f -y && \
   rm -f /usr/src/google-chrome-stable_current_amd64.deb
 RUN google-chrome --version
