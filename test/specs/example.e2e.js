@@ -5,10 +5,8 @@ describe('My Login application', () => {
     it('should login with valid credentials', () => {
         LoginPage.open();
 
-        LoginPage.login('tomsmith', 'SuperSecretPassword!');
+        LoginPage.login('studentm@dev-edu-peardeck.com', 'howdy235');
         expect(SecurePage.flashAlert).toBeExisting();
-        expect(SecurePage.flashAlert).toHaveTextContaining(
-            'You logged into a secure area!');
     });
 });
 
