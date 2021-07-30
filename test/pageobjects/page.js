@@ -8,6 +8,6 @@ module.exports = class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open () {
-        return browser.url('https://app.peardeck.com/authPicker?finalDestinationUrl=%2Fhome%2F')
+        return browser.url('https://qa.peardeck.dev/authPicker?finalDestinationUrl=%2Fhome%2F')
     }
 }
