@@ -17,7 +17,7 @@
     "@wdio/mocha-framework": "^6.10.11",
     "@wdio/spec-reporter": "^6.10.6",
     "@wdio/sync": "^6.10.11",
-    "chromedriver": "^87.0.4",
+    "chromedriver": "92.0.0",
     "wdio-chromedriver-service": "^6.0.4",
     "wdio-docker-service": "^3.0.0"
   }

@@ -51,6 +51,7 @@ RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
 
 RUN apt-get install -y wget &&\
+    apt-get install -y build-essential &&\
     apt-get install -y libxss1 libappindicator1 libindicator7 &&\
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&\ 
     apt -y install ./google-chrome*.deb
