@@ -1,7 +1,7 @@
 steps:
 # Build a docker image
 - name: "gcr.io/cloud-builders/docker"
-  args: [ "build", "-t", "gcr.io/peardeck-dev-environment", "wdio" "." ]
+  args: [ "build", "-t", "gcr.io/peardeck-dev-environment", "wdio", "." ]
 
 - name: "gcr.io/cloud-builders/docker"
-  args: ["run"]
+  args: ["run", "wdio"]
