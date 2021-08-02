@@ -1,11 +1,8 @@
 steps:
 # Build a docker image
-- name: "gcr.io/cloud-builders/docker"
+- name: "gcr.io/peardeck-dev-environment/wdio"
   args: [ "build", "-t", "wdiotest", "." ]
 
-# Push the docker image to container registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'wdiotest']
 
 - name: "gcr.io/peardeck-dev-environment/wdio"
   args: ["run","-it", "wdiotest"]
