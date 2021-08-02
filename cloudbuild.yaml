@@ -1,7 +1,3 @@
 # Build a docker image
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/automatedtest', 'gcr.io/automatedtest/testautomation', '.' ]
-
-# Execute the tests by invoking docker compose
-- name: 'docker/compose:1.15.0'
-  args: ['run', 'automation']
+  args: [ 'build', '-t', 'gcr.io/peardeck-dev-environment', 'gcr.io/peardeck-dev-environment/vprabu365/webdriverIO', '.' ]
