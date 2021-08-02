@@ -1,8 +1,8 @@
 steps:
 # Build a docker image
-- name: "gcr.io/peardeck-dev-environment/wdio"
+- name: "gcr.io/peardeck-dev-environment"
   args: [ "build", "-t", "wdiotest", "." ]
 
 
-- name: "gcr.io/peardeck-dev-environment/wdio"
+- name: "gcr.io/peardeck-dev-environment"
   args: ["run","-it", "wdiotest"]
