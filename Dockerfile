@@ -1,4 +1,4 @@
-FROM node:14.15.3-buster-slim
+FROM node:14.15.3-buster
 
 # INSTALL LIBRARIES & FONTS 
 RUN apt-get update && \
@@ -49,13 +49,11 @@ RUN node -p process.versions
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
-
-RUN apt-get install -y wget &&\
-    apt-get install -y build-essential &&\
-    apt-get install -y libxss1 libappindicator1 libindicator7 &&\
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&\ 
-    apt -y install ./google-chrome*.deb
-
+ENV CHROME_VERSION 87.0.4280.88
+RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb" && \
+  dpkg -i /usr/src/google-chrome-stable_current_amd64.deb ; \
+  apt-get install -f -y && \
+  rm -f /usr/src/google-chrome-stable_current_amd64.deb
 RUN google-chrome --version
 # "fake" dbus address to prevent errors
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
@@ -77,6 +75,7 @@ RUN echo  " node version:    $(node -v) \n" \
   "debian version:  $(cat /etc/debian_version) \n" \
   "user:            $(whoami) \n"
 RUN ls
+
 
 # ON RUNNING THE IMAGE THIS COMMAND WILL BE TRIGGERED BY DEFAULT
 ENTRYPOINT ["npm", "run", "test"]
