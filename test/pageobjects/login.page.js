@@ -10,7 +10,12 @@ class LoginPage extends Page {
     get googleButton () { return $('[data-qa="googleButton"]') }
     get signInButton () { return $('.valet-masthead__signin-link-label') }
     get inputUsername () { return $('input[type="email"]') }
-    get inputPassword () { return $('input[type="password"]') }
+    get inputPassword () { 
+        
+        const check = browser.$('input[type="password"]')
+        console.log("Vyas",check)
+        return $('input[type="password"]') 
+    }
     get emailSubmit () { return $('[id="identifierNext"]') }
     get passwordSubmit () { return $('[id="passwordNext"]') }
 
@@ -23,6 +28,7 @@ class LoginPage extends Page {
         this.signInButton.click()
         this.inputUsername.setValue(username);
         browser.keys("\uE007"); 
+        browser.pause(4000);
         this.inputPassword.setValue(password);
         browser.keys("\uE007"); 
 
