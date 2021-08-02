@@ -55,7 +55,17 @@ exports.config = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            args: ['--no-sandbox', '--disable-dev-shm-usage', '--headless']
+            args: ['--no-sandbox', '--disable-dev-shm-usage', '--headless',
+            "--incognito",
+            "user_agent=DN",
+            "--ignore-certificate-errors",
+            "--profile-directory=Default",
+            "--disable-popup-blocking",
+            "--disable-extensions",
+            "user_agent=DN",
+            "--disable-plugins-discovery"
+        
+        ]
         }        
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
